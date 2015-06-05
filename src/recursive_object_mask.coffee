@@ -20,10 +20,15 @@ module.exports =
   ###
   Recursively mask an object
 
-  @param    {object} mask The mask to filter `object` with
   @param    {object} object The object to filter via `mask`
+  @param    {object} mask The mask to filter `object` with
   @return   string
   @since    0.1.0
   ###
-  mask: (mask, object) ->
-    object
+  mask: (object, mask) ->
+    result = { }
+    for k,v of mask
+      result[k] = object[k]
+
+    result
+

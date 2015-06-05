@@ -77,6 +77,7 @@ SUITES =
 describe 'masker', () ->
   describe 'mask', () ->
     for message, spec of SUITES
-      it message, ->
-        expect(masker.mask spec.object, spec.mask)
-          .to.deep.equal spec.expected
+      do (message, spec) ->
+        it message, ->
+          expect(masker.mask spec.object, spec.mask)
+            .to.deep.equal spec.expected
