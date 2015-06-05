@@ -36,12 +36,12 @@ SUITES =
       ]
 
     mask:
-      arr: true
+      arr: { foo: true }
 
     expected:
       arr: [
-        { foo: 1, bar: 2 }
-        { foo: 2, baz: 2 }
+        { foo: 1 }
+        { foo: 2 }
       ]
 
   'respects * keys found in masks':
