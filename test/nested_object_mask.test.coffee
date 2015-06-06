@@ -14,6 +14,43 @@ SUITES =
     expected:
       foo: 1
 
+  'masks values based on the truthiness of the mask\'s value':
+    object:
+      trueTrue: 'kept'
+      trueOne: 'kept'
+      trueString: 'kept'
+      trueObject: 'kept'
+      trueArray: 'kept'
+      trueRegex: 'kept'
+      falseFalse: 'dropped'
+      falseString: 'dropped'
+      falseNull: 'dropped'
+      falseZero: 'dropped'
+      falseNaN: 'dropped'
+      falseUndefined: 'dropped'
+
+    mask:
+      trueTrue: true
+      trueOne: 1
+      trueString: 'yes'
+      trueObject: {}
+      trueArray: []
+      trueRegex: /asdf/
+      falseFalse: false
+      falseString: ''
+      falseNull: null
+      falseZero: 0
+      falseNaN: NaN
+      falseUndefined: undefined
+
+    expected:
+      trueTrue: 'kept'
+      trueOne: 'kept'
+      trueString: 'kept'
+      trueObject: 'kept'
+      trueArray: 'kept'
+      trueRegex: 'kept'
+
   'hides keys when mask value is false':
     object:
       foo: 1
