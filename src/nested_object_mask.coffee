@@ -26,7 +26,7 @@ Masker =
   @since    0.1.0
   ###
   mask: (object, mask) ->
-    return undefined if mask == false
+    return undefined unless mask
     return object unless _.isObject(object) or _.isArray(object)
 
     # if the mask contains a key that is simply an asterisk, all  of the
