@@ -13,36 +13,57 @@ Install the module via npm: `npm install nested-object-mask`
 
 ## Usage
 
+#### Basic
 ```coffee
 # the hero of our story
 masker = require 'nested-object-mask'
 
 # the source object we'd like to mask
 object =
-    keepThisKey: 'some value'
-    subObject:
-        alsoKeepThisKey: 'will do'
-        filterThisKey: 'good bye :<'
+  keepThisKey: 'some value'
+  subObject:
+    alsoKeepThisKey: 'will do'
+    filterThisKey: 'good bye :<'
 
 # a mask that determines which keys will be kept from the original object if a
 # property has a truthy value in the mask, it is kept from the original object
 mask =
-    keepThisKey: true
-    subObject:
-        alsoKeepThisKey: true
-        filterThisKey: false
+  keepThisKey: true
+  subObject:
+    alsoKeepThisKey: true
+    filterThisKey: false
 
 # do the thing!
 result = masker.mask object, mask
 
 # our result should look like this
 expected = 
-    keepThisKey: 'some value'
-    subObject:
-        alsoKeepThisKey: 'will do'
+  keepThisKey: 'some value'
+  subObject:
+    alsoKeepThisKey: 'will do'
 
 assert.deepEqual result, expected
 ```
+
+#### The '*' Key
+If you need to keep **all** "own" keys in an object, specify a '*' key in the mask, like so:
+
+```coffee
+object:
+  thing1: { foo: 1, bar: 2 }
+  thing2: { foo: 2, baz: 2 }
+
+mask:
+  "*": { foo: true }
+
+expected:
+  thing1: { foo: 1 }
+  thing2: { foo: 2 }
+
+assert.deepEqual result, expected
+```
+
+Note that actual globbing is not currently supported, and that you will need to quote the key. Nesting 
 
 ## License
 
