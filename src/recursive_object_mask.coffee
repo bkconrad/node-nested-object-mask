@@ -41,7 +41,7 @@ module.exports =
       subMask = undefined
       if _.has(mask, k)
         subMask = mask[k]
-      else if permitAll
+      else # if permitAll <-- this is always true here
         if _.has(mask, '*')
           subMask = mask['*']
         else
