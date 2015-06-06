@@ -1,6 +1,6 @@
 # recursive-object-mask
-[![NPM Version](https://badge.fury.io/js/nested-object-mask.png)](https://npmjs.org/package/recursive-object-mask)
-[![Build Status](https://secure.travis-ci.org/kaen/node-nested-object-mask.png)](http://travis-ci.org/kaen/recursive-object-mask)
+[![NPM Version](https://badge.fury.io/js/nested-object-mask.png)](https://npmjs.org/package/nested-object-mask)
+[![Build Status](https://secure.travis-ci.org/bkconrad/node-nested-object-mask.png)](http://travis-ci.org/bkconrad/node-nested-object-mask)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com)
 
 > Like `object-mask`, but nested
