@@ -23,6 +23,7 @@ module.exports = ( grunt ) ->
 
     # Define aliases for known fs locations
     srcDir:                       'src/'              # CoffeeScript or other source files to be compiled or processed
+    libDir:                       'lib/'              # JavaScript or other compiled files to be included in the package
     tstDir:                       'test/'             # Project's tests
     resDir:                       'res/'              # Static resources - images, text files, external deps etc.
     docDir:                       'docs/'             # Automatically-generated or compiled documentation

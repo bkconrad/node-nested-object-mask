@@ -20,12 +20,13 @@
       "url": "https://github.com/kaen/node-nested-object-mask/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "index.js",
-  "files": ["src/"],
+  "main": "lib/index.js",
+  "files": ["src/", "lib/"],
   "engines": {
     "node": ">= 0.10.0"
   },
   "scripts": {
+    "prepublish": "grunt build",
     "test": "grunt test"
   },
   "devDependencies": {
