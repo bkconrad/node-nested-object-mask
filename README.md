@@ -5,6 +5,8 @@
 
 > Like `object-mask`, but nested
 
+**Note:** This library contains a *rich* nested object masking implementation, and has more complicated semantics than similar libraries for flat object masking. If you do not specifically need the *nesting* support from this library, try `object-mask` instead.
+
 ## Installation Instructions
 
 Install the module via npm: `npm install nested-object-mask`
