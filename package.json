@@ -21,7 +21,7 @@
     }
   ],
   "main": "index.js",
-  "files": "src/*.js",
+  "files": ["src/"],
   "engines": {
     "node": ">= 0.10.0"
   },
