@@ -15,6 +15,46 @@ SUITES =
     expected:
       foo: 1
 
+  'masks nested objects':
+    object: 
+      obj: {
+        sub1: {
+          foo: 1
+          bar: 2
+          baz: 3
+        }
+        sub2: {
+          foo: 4
+          bar: 5
+          baz: 6
+        }
+      }
+      bar: 2
+
+    mask:
+      obj: {
+        sub1: {
+          foo: true
+          bar: true
+        }
+        sub2: {
+          foo: true
+          bar: true
+        }
+      }
+
+    expected:
+      obj: {
+        sub1: {
+          foo: 1
+          bar: 2
+        }
+        sub2: {
+          foo: 4
+          bar: 5
+        }
+      }
+
   'even allows properties whose values are undefined':
     object: 
       foo: 1

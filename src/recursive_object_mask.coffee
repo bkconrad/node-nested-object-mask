@@ -26,9 +26,15 @@ module.exports =
   @since    0.1.0
   ###
   mask: (object, mask) ->
+    # TODO: clone object if mask is not an Object
+    # return object unless typeof mask == 'object'
+
     result = { }
     for k,v of mask
-      result[k] = object[k]
+      if typeof object[k] == 'object'
+        result[k] = module.exports.mask(object[k], mask[k])
+      else
+        result[k] = object[k]
 
     result
 
