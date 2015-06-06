@@ -1,4 +1,3 @@
-should = require 'should'
 expect = require('chai').expect
 masker = require '../src/recursive_object_mask'
 

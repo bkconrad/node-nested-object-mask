@@ -77,6 +77,17 @@ module.exports = ( grunt ) ->
       project:                    # Run the project's tests
         src:                      ['<%= tstFiles %>']
 
+    # grunt-mocha-istanbul: Run tests with coverage report
+    mocha_istanbul:
+      coverage:
+        src: 'test'
+        options:
+          mochaOptions: ['--compilers', 'coffee:coffee-script/register']
+          # istanbulOptions: ['--post-require-hook', 'coffee-coverage/register-istanbul']
+
+      options:
+        compilers:                ['coffee:coffee-script/register']
+        require:                  ['coffee-coverage/register-istanbul']
 
     # grunt-codo: CoffeeScript API documentation generator
     codo:
@@ -134,6 +145,7 @@ module.exports = ( grunt ) ->
 
   define 'lint',                  ['coffeelint']
   define 'test',                  ['mochacli']
+  define 'cov',                   ['mocha_istanbul']
   define 'docs',                  ['codo']
   define 'build:dev',             ['clean:build', 'lint', 'test', 'coffee:build']
   define 'build',                 ['build:dev', 'uglify:build']
