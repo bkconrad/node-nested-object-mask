@@ -69,8 +69,8 @@ module.exports = ( grunt ) ->
     mochacli:
       options:
         reporter:                 'spec'                                      # This report is nice and human-readable
-        require:                  ['should']                                  # Run the tests using Should.js
         compilers:                ['coffee:coffee-script/register']
+        excludes:                 './gruntfile.coffee'
 
       # Targets
 
@@ -83,10 +83,9 @@ module.exports = ( grunt ) ->
         src: 'test'
         options:
           mochaOptions: ['--compilers', 'coffee:coffee-script/register']
-          # istanbulOptions: ['--post-require-hook', 'coffee-coverage/register-istanbul']
 
       options:
-        compilers:                ['coffee:coffee-script/register']
+        root: 'src'
         require:                  ['coffee-coverage/register-istanbul']
 
     # grunt-codo: CoffeeScript API documentation generator
