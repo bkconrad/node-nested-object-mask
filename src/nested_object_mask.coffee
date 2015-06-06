@@ -12,18 +12,17 @@ For full copyright and license information, please see the LICENSE file
 ###
 
 ###
-SimpleClass documentation
-
+@mixin Masker
 @since  0.1.0
 ###
-module.exports =
+Masker =
 
   ###
   Recursively mask an object
 
-  @param    {object} object The object to filter via `mask`
-  @param    {object} mask The mask to filter `object` with
-  @return   string
+  @param    {any} object The object to filter via `mask`
+  @param    {any} mask The mask to filter `object` with
+  @return   any
   @since    0.1.0
   ###
   mask: (object, mask) ->
@@ -53,3 +52,4 @@ module.exports =
 
     result
 
+module.exports = Masker

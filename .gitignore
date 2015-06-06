@@ -12,3 +12,4 @@ npm-debug.log
 # Code editor-specific excludes
 *.sublime-*
 coverage/
+docs/
