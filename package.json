@@ -1,23 +1,23 @@
 {
-  "name": "recursive-object-mask",
-  "description": "Like object-mask, but recursive",
+  "name": "nested-object-mask",
+  "description": "Like object-mask, but nested",
   "version": "0.1.0",
-  "homepage": "https://github.com/kaen/recursive-object-mask",
+  "homepage": "https://github.com/kaen/node-nested-object-mask",
   "author": {
     "name": "Bryan Conrad",
     "email": "bkconrad@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/kaen/recursive-object-mask.git"
+    "url": "git://github.com/kaen/node-nested-object-mask.git"
   },
   "bugs": {
-    "url": "https://github.com/kaen/recursive-object-mask/issues"
+    "url": "https://github.com/kaen/node-nested-object-mask/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/kaen/recursive-object-mask/blob/master/LICENSE-MIT"
+      "url": "https://github.com/kaen/node-nested-object-mask/blob/master/LICENSE-MIT"
     }
   ],
   "main": "index.js",

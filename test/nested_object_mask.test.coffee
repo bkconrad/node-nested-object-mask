@@ -1,5 +1,5 @@
 expect = require('chai').expect
-masker = require '../src/recursive_object_mask'
+masker = require '../src/nested_object_mask'
 
 
 SUITES =

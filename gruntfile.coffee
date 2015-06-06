@@ -1,12 +1,10 @@
 ###
-kaen\recursive-object-mask
-
 Licensed under the MIT license
 For full copyright and license information, please see the LICENSE file
 
 @author     Bryan Conrad <bkconrad@gmail.com>
 @copyright  2015 Bryan Conrad
-@link       https://github.com/kaen/recursive-object-mask
+@link       https://github.com/kaen/node-nested-object-mask
 @license    http://choosealicense.com/licenses/MIT  MIT License
 ###
 
@@ -91,7 +89,7 @@ module.exports = ( grunt ) ->
     # grunt-codo: CoffeeScript API documentation generator
     codo:
       options:
-        title:                    'recursive-object-mask'
+        title:                    'nested-object-mask'
         debug:                    false
         inputs:                   ['<%= srcDir %>']
         output:                   '<%= docDir %>'
