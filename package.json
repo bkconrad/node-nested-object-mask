@@ -1,7 +1,7 @@
 {
   "name": "nested-object-mask",
   "description": "Like object-mask, but nested",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/kaen/node-nested-object-mask",
   "author": {
     "name": "Bryan Conrad",
