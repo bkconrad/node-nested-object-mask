@@ -46,8 +46,6 @@ module.exports =
           subMask = mask['*']
         else
           subMask = { '*': true }
-      else
-        subMask = mask[k]
       
       maskedSubObject = module.exports.mask(object[k], subMask)
       unless object[k] == undefined or maskedSubObject == undefined
