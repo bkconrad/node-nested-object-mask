@@ -67,23 +67,6 @@ SUITES =
     expected:
       foo: 1
 
-  'implicitly keeps all array elements':
-    object: 
-      foo: 'not kept'
-      arr: [
-        { foo: 1, bar: 2 }
-        { foo: 2, baz: 2 }
-      ]
-
-    mask:
-      arr: { foo: true }
-
-    expected:
-      arr: [
-        { foo: 1 }
-        { foo: 2 }
-      ]
-
   'respects * keys found in masks':
     object: 
       obj: {
@@ -98,7 +81,7 @@ SUITES =
     mask:
       obj: {
         "*": {
-          foo: true
+          "*": true
         }
       }
       willBeEmptyWhenFiltered: {
@@ -114,10 +97,44 @@ SUITES =
 
       }
 
+  'masks work on array elements too':
+    object: 
+      foo: 'not kept'
+      arr: [
+        { foo: 1, bar: 2 }
+        { foo: 2, baz: 2 }
+      ]
+      starArray: [
+        { foo: 1, bar: 2 }
+        { foo: 2, baz: 2 }
+      ]
+
+    mask:
+      arr: { 1: true }
+      starArray: { '*': { foo: true } }
+
+    expected:
+      # basically, this should be an array with no value set for [0], but a
+      # value set for [1] (which is destinct from the literal [ undefined,
+      # 'foo' ]). this is essentially a literal for the following two lines:
+      # a = []
+      # a[1] = foo
+      #
+      # use console.log if you still don't understand :)
+      arr: ((x)-> x[1] = { foo: 2, baz: 2 } ; x)([])
+
+      starArray: [
+        { foo: 1 }
+        { foo: 2 }
+      ]
+
+
+
 describe 'masker', () ->
   describe 'mask', () ->
     for message, spec of SUITES
       do (message, spec) ->
         it message, ->
-          expect(masker.mask spec.object, spec.mask)
+          result = masker.mask spec.object, spec.mask
+          expect(result)
             .to.deep.equal spec.expected

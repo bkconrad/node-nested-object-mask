@@ -1,3 +1,4 @@
+_ = require 'lodash'
 ###
 kaen\recursive-object-mask
 
@@ -26,15 +27,29 @@ module.exports =
   @since    0.1.0
   ###
   mask: (object, mask) ->
-    # TODO: clone object if mask is not an Object
-    # return object unless typeof mask == 'object'
+    return undefined if mask == false
+    return object unless _.isObject(object) or _.isArray(object)
 
-    result = { }
-    for k,v of mask
-      if typeof object[k] == 'object'
-        result[k] = module.exports.mask(object[k], mask[k])
+    # if the mask contains a key that is simply an asterisk, all  of the
+    # object's "own" properties will be passed through. this is achieved by
+    # simply setting the original object as the "iteratee" rather than the
+    # mask
+    result = if _.isArray(object) then [] else {}
+    permitAll = _.has(mask, '*') or mask == true
+    iteratee = if permitAll then object else mask
+    for own k,v of iteratee
+      subMask = undefined
+      if _.has(mask, k)
+        subMask = mask[k]
+      else if permitAll
+        if _.has(mask, '*')
+          subMask = mask['*']
+        else
+          subMask = { '*': true }
       else
-        result[k] = object[k]
+        subMask = mask[k]
+
+      result[k] = module.exports.mask(object[k], subMask) unless object[k] == undefined
 
     result
 

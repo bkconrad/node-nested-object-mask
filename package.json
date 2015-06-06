@@ -41,5 +41,8 @@
     "load-grunt-tasks": "~0.3.0",
     "should": "~3.1.0"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "lodash": "^3.9.3"
+  }
 }
