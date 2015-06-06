@@ -39,7 +39,7 @@ module.exports = ( grunt ) ->
     watch:
       options:
         # Define default tasks here, then point targets' "tasks" attribute here: '<%= watch.options.tasks %>'
-        tasks:                    ['lint', 'test']    # Run these tasks when a change is detected
+        tasks:                    ['lint', 'cov']    # Run these tasks when a change is detected
         interrupt:                true                # Restarts any running tasks on next event
         atBegin:                  true                # Runs all defined watch tasks on startup
         dateFormat:               ( time ) -> log "Done in #{time}ms"

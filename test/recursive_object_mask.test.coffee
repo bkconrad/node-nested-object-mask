@@ -14,6 +14,18 @@ SUITES =
     expected:
       foo: 1
 
+  'hides keys when mask value is false':
+    object:
+      foo: 1
+      bar: 2
+
+    mask:
+      foo: false
+      bar: true
+
+    expected:
+      bar: 2
+
   'masks nested objects':
     object:
       obj: {
