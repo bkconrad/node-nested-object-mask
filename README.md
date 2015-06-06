@@ -5,7 +5,10 @@
 
 > Like `object-mask`, but nested
 
-**Note:** This library contains a *rich* nested object masking implementation, and has more complicated semantics than similar libraries for flat object masking. If you do not specifically need the *nesting* support from this library, try `object-mask` instead for a simpler mental model.
+Note: This library contains a *rich* nested object masking implementation, and
+has more complicated semantics than similar libraries for flat object masking.
+If you do not specifically need the *nesting* support from this library, try
+`object-mask` instead for a simpler mental model.
 
 ## Installation Instructions
 
@@ -46,7 +49,8 @@ assert.deepEqual result, expected
 ```
 
 #### The '*' Key
-If you need to keep **all** "own" keys in an object, specify a '*' key in the mask, like so:
+If you need to keep **all** "own" keys in an object, specify a '*' key in the
+mask, like so:
 
 ```coffee
 object:
