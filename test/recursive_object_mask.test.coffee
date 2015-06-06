@@ -3,9 +3,9 @@ expect = require('chai').expect
 masker = require '../src/recursive_object_mask'
 
 
-SUITES = 
+SUITES =
   'masks root-level keys':
-    object: 
+    object:
       foo: 1
       bar: 2
 
@@ -16,7 +16,7 @@ SUITES =
       foo: 1
 
   'masks nested objects':
-    object: 
+    object:
       obj: {
         sub1: {
           foo: 1
@@ -56,7 +56,7 @@ SUITES =
       }
 
   'even allows properties whose values are undefined':
-    object: 
+    object:
       foo: 1
       bar: undefined
 
@@ -68,7 +68,7 @@ SUITES =
       foo: 1
 
   'respects * keys found in masks':
-    object: 
+    object:
       obj: {
         thing1: { foo: 1, bar: 2 }
         thing2: { foo: 2, baz: 2 }
@@ -98,7 +98,7 @@ SUITES =
       }
 
   'masks work on array elements too':
-    object: 
+    object:
       foo: 'not kept'
       arr: [
         { foo: 1, bar: 2 }
@@ -121,7 +121,7 @@ SUITES =
       # a[1] = foo
       #
       # use console.log if you still don't understand :)
-      arr: ((x)-> x[1] = { foo: 2, baz: 2 } ; x)([])
+      arr: ((x) -> x[1] = { foo: 2, baz: 2 } ; x)([])
 
       starArray: [
         { foo: 1 }
