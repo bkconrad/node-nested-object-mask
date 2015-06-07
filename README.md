@@ -49,7 +49,7 @@ assert.deepEqual result, expected
 ```
 
 #### The '*' Key
-If you need to keep **all** "own" keys in an object, specify a '*' key in the
+If you need to keep **all** "own" keys in an object, specify a `'*'` key in the
 mask, like so:
 
 ```coffee
@@ -67,7 +67,12 @@ expected:
 assert.deepEqual result, expected
 ```
 
-Note that actual globbing is not currently supported, and that you will need to quote the key. Nesting 
+Note that actual globbing is not currently supported, and that you will need to quote the key. Nesting `'*'` keys is also valid, like so:
+
+```coffee
+mask:
+  '*': { '*': true }
+```
 
 ## License
 
