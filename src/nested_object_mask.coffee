@@ -23,6 +23,7 @@ Masker =
   @param    {any} object The object to filter via `mask`
   @param    {any} mask The mask to filter `object` with
   @param    {object} options Options to use while masking
+  @option   options [boolean] pruneEmpty When true, recursively prunes empty objects and arrays from the result
   @return   any
   @since    0.1.0
   ###
