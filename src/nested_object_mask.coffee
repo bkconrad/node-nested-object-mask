@@ -22,10 +22,12 @@ Masker =
 
   @param    {any} object The object to filter via `mask`
   @param    {any} mask The mask to filter `object` with
+  @param    {object} options Options to use while masking
   @return   any
   @since    0.1.0
   ###
-  mask: (object, mask) ->
+  mask: (object, mask, options) ->
+    options = options || { }
     return undefined unless mask
     return object unless _.isObject(object) or _.isArray(object)
 
@@ -46,9 +48,12 @@ Masker =
         else
           subMask = { '*': true }
       
-      maskedSubObject = module.exports.mask(object[k], subMask)
-      unless object[k] == undefined or maskedSubObject == undefined
-        result[k] = module.exports.mask(object[k], subMask)
+      maskedSubObject = module.exports.mask(object[k], subMask, options)
+      shouldPruneValue = (options.pruneEmpty && _.isEmpty(maskedSubObject))
+      valueWasEmpty = object[k] == undefined
+      valueIsEmpty = maskedSubObject == undefined
+      unless shouldPruneValue or valueWasEmpty or valueIsEmpty
+        result[k] = maskedSubObject
 
     result
 
