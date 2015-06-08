@@ -10,9 +10,12 @@ has more complicated semantics than similar libraries for flat object masking.
 If you do not specifically need the *nesting* support from this library, try
 `object-mask` instead for a simpler mental model.
 
+Although the API is fairly simple, this module is 
+[well tested](http://bkconrad.github.io/node-nested-object-mask/coverage/lcov-report/recursive-object-mask/src/index.html) and [thoroughly documented](http://bkconrad.github.io/node-nested-object-mask/docs/).
+
 ## Installation Instructions
 
-Install the module via npm: `npm install nested-object-mask`
+Install the module via npm: `npm install --save nested-object-mask`
 
 ## Usage
 *NB: `nested-object-mask` works happily with plain JS, but it is written in coffeescript, and so are the examples below (because it's 2015).*
