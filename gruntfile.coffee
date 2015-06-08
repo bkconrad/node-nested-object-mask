@@ -154,7 +154,7 @@ module.exports = ( grunt ) ->
   define 'docs',                  ['codo']
   define 'build:dev',             ['clean:build', 'lint', 'test', 'coffee:build']
   define 'build',                 ['build:dev', 'uglify:build']
-  define 'pages',                 ['gh-pages']
+  define 'pages',                 ['build', 'cov', 'docs', 'gh-pages']
   define 'default',               ['build']
 
   ###############################################################################
