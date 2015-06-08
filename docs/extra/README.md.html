@@ -39,7 +39,8 @@
 <a href="http://gruntjs.com"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt"></a></p><blockquote><p>Like <code>object-mask</code>, but nested</p></blockquote><p>Note: This library contains a <em>rich</em> nested object masking implementation, and
 has more complicated semantics than similar libraries for flat object masking.
 If you do not specifically need the <em>nesting</em> support from this library, try
-<code>object-mask</code> instead for a simpler mental model.</p><h2 id="installation-instructions">Installation Instructions</h2><p>Install the module via npm: <code>npm install nested-object-mask</code></p><h2 id="usage">Usage</h2><p><em>NB: <code>nested-object-mask</code> works happily with plain JS, but it is written in coffeescript, and so are the examples below (because it&#39;s 2015).</em></p><h4 id="basic">Basic</h4><p>At its simplest, <code>nested-object-mask</code> does this:</p><pre><code class="lang-coffee"># the hero of our story
+<code>object-mask</code> instead for a simpler mental model.</p><p>Although the API is fairly simple, this module is 
+<a href="http://bkconrad.github.io/node-nested-object-mask/coverage/lcov-report/recursive-object-mask/src/index.html">well tested</a> and <a href="http://bkconrad.github.io/node-nested-object-mask/docs/">thoroughly documented</a>.</p><h2 id="installation-instructions">Installation Instructions</h2><p>Install the module via npm: <code>npm install --save nested-object-mask</code></p><h2 id="usage">Usage</h2><p><em>NB: <code>nested-object-mask</code> works happily with plain JS, but it is written in coffeescript, and so are the examples below (because it&#39;s 2015).</em></p><h4 id="basic">Basic</h4><p>At its simplest, <code>nested-object-mask</code> does this:</p><pre><code class="lang-coffee"># the hero of our story
 masker = require &#39;nested-object-mask&#39;
 
 # the source object we&#39;d like to mask
@@ -66,7 +67,7 @@ assert.deepEqual result, expected
       </div>
     </div>
     <div id='footer'>
-  June 07, 15 18:25:10 by
+  June 07, 15 18:40:14 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
