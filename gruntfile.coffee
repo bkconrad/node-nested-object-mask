@@ -128,6 +128,13 @@ module.exports = ( grunt ) ->
       build:                      ['<%= srcDir %>**/*.js', 'index.js']        # Clean the build products
       docs:                       ['<%= docDir %>']
 
+    # grunt-gh-pages: Build GH pages
+    'gh-pages':
+      options:
+        base: '.'
+
+      src: ['docs', 'coverage']
+
 
   ###############################################################################
 
@@ -147,6 +154,7 @@ module.exports = ( grunt ) ->
   define 'docs',                  ['codo']
   define 'build:dev',             ['clean:build', 'lint', 'test', 'coffee:build']
   define 'build',                 ['build:dev', 'uglify:build']
+  define 'pages',                 ['gh-pages']
   define 'default',               ['build']
 
   ###############################################################################
