@@ -40,7 +40,7 @@ Masker =
         alsoKeepThisKey: true
         dropThisKey: false
 
-    expected = 
+    expected =
       keepThisKey: 'some value'
       subObject:
         alsoKeepThisKey: 'will do'
