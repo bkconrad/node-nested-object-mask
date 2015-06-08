@@ -133,7 +133,7 @@ module.exports = ( grunt ) ->
       options:
         base: '.'
 
-      src: ['docs', 'coverage']
+      src: ['docs/**', 'coverage/**']
 
 
   ###############################################################################
