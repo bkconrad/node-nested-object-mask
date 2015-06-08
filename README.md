@@ -15,6 +15,7 @@ If you do not specifically need the *nesting* support from this library, try
 Install the module via npm: `npm install nested-object-mask`
 
 ## Usage
+*NB: `nested-object-mask` works happily with plain JS, but it is written in coffeescript, and so are the examples below (because it's 2015).*
 
 #### Basic
 At its simplest, `nested-object-mask` does this:

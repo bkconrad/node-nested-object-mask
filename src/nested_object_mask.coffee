@@ -23,6 +23,9 @@ Masker =
   See the examples below for details about options and general rules of
   operation.
 
+  If you can not read coffeescript object literals, you can read the compiled
+  JS of the examples below in [this gist](https://gist.github.com/bkconrad/4a809a7f6076474e56d8)
+
   @example Nested masking
     object =
       keepThisKey: 'some value'
