@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for recursive-object-mask/src/nested_object_mask.coffee</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">recursive-object-mask/src/nested_object_mask.coffee</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(30 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(14 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(1 / 1)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(23 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">recursive-object-mask/src/</a> &#187; nested_object_mask.coffee</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55</span>
+<span class="cline-any cline-yes">55</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">35</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">_ = require 'lodash'
+###
+kaen\recursive-object-mask
+&nbsp;
+Licensed under the MIT license
+For full copyright and license information, please see the LICENSE file
+&nbsp;
+@author     Bryan Conrad &lt;bkconrad@gmail.com&gt;
+@copyright  2015 Bryan Conrad
+@link       https://github.com/kaen/node-nested-object-mask
+@license    http://choosealicense.com/licenses/MIT  MIT License
+###
+&nbsp;
+###
+@mixin Masker
+@since  0.1.0
+###
+Masker =
+&nbsp;
+  ###
+  The only function you'll ever need :)
+&nbsp;
+  See the examples below for details about options and general rules of
+  operation.
+&nbsp;
+  If you can not read coffeescript object literals, you can read the compiled
+  JS of the examples below in [this gist](https://gist.github.com/bkconrad/4a809a7f6076474e56d8)
+&nbsp;
+  @example Nested masking
+    object =
+      keepThisKey: 'some value'
+      subObject:
+        alsoKeepThisKey: 'will do'
+        dropThisKey: 'good bye :&lt;'
+&nbsp;
+    mask =
+      keepThisKey: true
+      # mask within a mask -- maskception
+      subObject:
+        alsoKeepThisKey: true
+        dropThisKey: false
+&nbsp;
+    expected = 
+      keepThisKey: 'some value'
+      subObject:
+        alsoKeepThisKey: 'will do'
+&nbsp;
+  @example Pruning
+    # You can also prune empty objects and arrays from the result. Simply pass
+    # `pruneEmpty: true` in the options hash:
+    object =
+      empty: { }
+      emptyWhenFiltered:
+        foo: 'bar'
+      notEmptyWhenFiltered:
+        keepMe: 'some value'
+&nbsp;
+    mask =
+      empty: true
+      emptyWhenFiltered:
+        doesNotExist: true
+      notEmptyWhenFiltered:
+        keepMe: true
+&nbsp;
+    expected =
+      notEmptyWhenFiltered:
+        keepMe: 'some value'
+&nbsp;
+    result = masker.mask object, mask, pruneEmpty: true
+&nbsp;
+    # Without pruning, the result of the above would retain the empty objects,
+    # and would instead look like:
+    empty: { }
+    emptyWhenFiltered: { }
+    notEmptyWhenFiltered:
+      keepMe: 'some value'
+&nbsp;
+  @example The '*' Key
+    # If you need to keep **all** "own" keys in an object, specify a `'*'` key
+    # in the   mask, like so:
+    object =
+      thing1: { foo: 1, bar: 2 }
+      thing2: { foo: 2, baz: 2 }
+&nbsp;
+    mask =
+      "*": { foo: true }
+&nbsp;
+    expected =
+      thing1: { foo: 1 }
+      thing2: { foo: 2 }
+&nbsp;
+    assert.deepEqual result, expected
+&nbsp;
+    # Note that actual globbing is not currently supported, and that you will
+    # need to quote the key. Nesting `'*'` keys is also valid, like so:
+    mask =
+      '*': { '*': true }
+&nbsp;
+  @example Truthiness
+    # It is **highly recommended** that you construct your mask using only
+    # `true`, `false`, and objects when possible. When creating a mask by
+    # iterating over a domain object, make sure to set each value to a boolean
+    # for the least complications.
+&nbsp;
+    # If you can not create an ideal `true`/`false`-based mask, NOM will apply
+    # general JavaScript "truthiness" to your keys. You should at least be aware
+    # of some caveats (the empty string in particular):
+&nbsp;
+    object:
+      trueTrue: 'kept'
+      trueOne: 'kept'
+      trueString: 'kept'
+      trueObject: 'kept'
+      trueArray: 'kept'
+      trueRegex: 'kept'
+      falseFalse: 'dropped'
+      falseString: 'dropped'
+      falseNull: 'dropped'
+      falseZero: 'dropped'
+      falseNaN: 'dropped'
+      falseUndefined: 'dropped'
+&nbsp;
+    mask:
+      trueTrue: true
+      trueOne: 1
+      trueString: 'yes'
+      trueObject: {}
+      trueArray: []
+      trueRegex: /asdf/
+      falseFalse: false
+      falseString: ''
+      falseNull: null
+      falseZero: 0
+      falseNaN: NaN
+      falseUndefined: undefined
+&nbsp;
+    expected:
+      trueTrue: 'kept'
+      trueOne: 'kept'
+      trueString: 'kept'
+      trueObject: 'kept'
+      trueArray: 'kept'
+      trueRegex: 'kept'
+&nbsp;
+&nbsp;
+  @param    {any} object The object to filter via `mask`
+  @param    {any} mask The mask to filter `object` with
+  @param    {object} options Options to use while masking
+  @option   options [boolean] pruneEmpty When true, recursively prunes empty objects and arrays from the result
+  @return   any
+  @since    0.1.0
+  ###
+  mask: (object, mask, options) -&gt;
+    options = options || { }
+    return undefined unless mask
+    return object unless _.isObject(object) or _.isArray(object)
+&nbsp;
+    # if the mask contains a key that is simply an asterisk, all  of the
+    # object's "own" properties will be passed through. this is achieved by
+    # simply setting the original object as the "iteratee" rather than the
+    # mask
+    result = if _.isArray(object) then [] else {}
+    permitAll = _.has(mask, '*') or mask == true
+    iteratee = if permitAll then object else mask
+    for own k,v of iteratee
+      subMask = undefined
+      if _.has(mask, k)
+        subMask = mask[k]
+      else # if permitAll &lt;-- this is always true here
+        if _.has(mask, '*')
+          subMask = mask['*']
+        else
+          subMask = { '*': true }
+      
+      maskedSubObject = module.exports.mask(object[k], subMask, options)
+      shouldPruneValue = (options.pruneEmpty &amp;&amp; _.isEmpty(maskedSubObject))
+      valueWasEmpty = object[k] == undefined
+      valueIsEmpty = maskedSubObject == undefined
+      unless shouldPruneValue or valueWasEmpty or valueIsEmpty
+        result[k] = maskedSubObject
+&nbsp;
+    result
+&nbsp;
+module.exports = Masker
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jun 07 2015 17:26:47 GMT-0700 (PDT)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

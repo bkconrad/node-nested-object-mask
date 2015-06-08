@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for recursive-object-mask/gruntfile.coffee</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">recursive-object-mask/gruntfile.coffee</span></h1>
+    <h2>
+        Statements: <span class="metric">0% <small>(0 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">0% <small>(0 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">recursive-object-mask/</a> &#187; gruntfile.coffee</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">###
+Licensed under the MIT license
+For full copyright and license information, please see the LICENSE file
+&nbsp;
+@author     Bryan Conrad &lt;bkconrad@gmail.com&gt;
+@copyright  2015 Bryan Conrad
+@link       https://github.com/kaen/node-nested-object-mask
+@license    http://choosealicense.com/licenses/MIT  MIT License
+###
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >module.exports = ( grunt ) -&gt;</span></span>
+&nbsp;
+  ### ALIASES ###
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  jsonFile =                      grunt.file.readJSON</span>           # Read a json file
+<span class="cstat-no" title="statement not covered" >  define =                        grunt.registerTask</span>            # Register a local task
+<span class="cstat-no" title="statement not covered" >  log =                           grunt.log.writeln</span>             # Write a single line to STDOUT
+&nbsp;
+&nbsp;
+  ### GRUNT CONFIGURATION ###
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  config =</span>
+&nbsp;
+    # Define aliases for known fs locations
+    srcDir:                       'src/'              # CoffeeScript or other source files to be compiled or processed
+    libDir:                       'lib/'              # JavaScript or other compiled files to be included in the package
+    tstDir:                       'test/'             # Project's tests
+    resDir:                       'res/'              # Static resources - images, text files, external deps etc.
+    docDir:                       'docs/'             # Automatically-generated or compiled documentation
+    srcFiles:                     ['&lt;%= srcDir %&gt;**/*.coffee', 'index.coffee']
+    tstFiles:                     '&lt;%= tstDir %&gt;**/*.test.coffee'
+    pkg:                          jsonFile 'package.json'
+&nbsp;
+&nbsp;
+    ### TASKS DEFINITION ###
+&nbsp;
+    # grunt-contrib-watch: Run tasks on filesystem changes
+    watch:
+      options:
+        # Define default tasks here, then point targets' "tasks" attribute here: '&lt;%= watch.options.tasks %&gt;'
+        tasks:                    ['lint', 'cov']    # Run these tasks when a change is detected
+        interrupt:                true                # Restarts any running tasks on next event
+        atBegin:                  true                # Runs all defined watch tasks on startup
+<span class="fstat-no" title="function not covered" >        dateFormat:               ( time ) -</span>&gt; <span class="cstat-no" title="statement not covered" >log "<span class="cstat-no" title="statement not covered" >Done in #{time}ms</span>"</span>
+&nbsp;
+      # Targets
+&nbsp;
+      gruntfile:                  # Watch the gruntfile for changes ( also dynamically reloads grunt-watch config )
+        files:                    'gruntfile.coffee'
+        tasks:                    '&lt;%= watch.options.tasks %&gt;'
+&nbsp;
+      project:                    # Watch the project's source files for changes
+        files:                    ['&lt;%= srcFiles %&gt;', '&lt;%= tstFiles %&gt;']
+        tasks:                    '&lt;%= watch.options.tasks %&gt;'
+&nbsp;
+&nbsp;
+    # grunt-coffeelint: Lint CoffeeScript files
+    coffeelint:
+      options:                    jsonFile 'coffeelint.json'
+&nbsp;
+      # Targets
+&nbsp;
+      gruntfile:                  'gruntfile.coffee'                          # Lint this file
+      project:                    ['&lt;%= srcFiles %&gt;', '&lt;%= tstFiles %&gt;']      # Lint application's project files
+&nbsp;
+&nbsp;
+    # grunt-mocha-cli: Run tests with Mocha framework
+    mochacli:
+      options:
+        reporter:                 'spec'                                      # This report is nice and human-readable
+        compilers:                ['coffee:coffee-script/register']
+        excludes:                 './gruntfile.coffee'
+&nbsp;
+      # Targets
+&nbsp;
+      project:                    # Run the project's tests
+        src:                      ['&lt;%= tstFiles %&gt;']
+&nbsp;
+    # grunt-mocha-istanbul: Run tests with coverage report
+    mocha_istanbul:
+      coverage:
+        src: 'test'
+        options:
+          mochaOptions: ['--compilers', 'coffee:coffee-script/register']
+&nbsp;
+      options:
+        root: 'src'
+        require:                  ['coffee-coverage/register-istanbul']
+&nbsp;
+    # grunt-codo: CoffeeScript API documentation generator
+    codo:
+      options:
+        title:                    'nested-object-mask'
+        debug:                    false
+        inputs:                   ['&lt;%= srcDir %&gt;']
+        output:                   '&lt;%= docDir %&gt;'
+&nbsp;
+&nbsp;
+    # grunt-contrib-coffee: Compile CoffeeScript into native JavaScript
+    coffee:
+&nbsp;
+      # Targets
+&nbsp;
+      build:                      # Compile CoffeeScript into target build directory
+        expand:                   true
+        ext:                      '.js'
+        src:                      '&lt;%= srcFiles %&gt;'
+        dest:                     '&lt;%= libDir %&gt;'
+&nbsp;
+&nbsp;
+    # grunt-contrib-uglify: Compress and mangle JavaScript files
+    uglify:
+&nbsp;
+      # Targets
+&nbsp;
+      build:
+        files: [
+          expand:                 true
+          src:                    '&lt;%= srcDir %&gt;**/*.js'
+        ]
+&nbsp;
+&nbsp;
+    # grunt-contrib-clean: Clean the target files &amp; folders, deleting anything inside
+    clean:
+&nbsp;
+      # Targets
+&nbsp;
+      build:                      ['&lt;%= srcDir %&gt;**/*.js', 'index.js']        # Clean the build products
+      docs:                       ['&lt;%= docDir %&gt;']
+&nbsp;
+    # grunt-gh-pages: Build GH pages
+    'gh-pages':
+      options:
+        base: '.'
+&nbsp;
+      src: ['docs/**', 'coverage/**']
+&nbsp;
+&nbsp;
+  ###############################################################################
+&nbsp;
+  ### CUSTOM FUNCTIONS ###
+&nbsp;
+&nbsp;
+  ### GRUNT MODULES ###
+&nbsp;
+  # Loads all grunt tasks from devDependencies starting with "grunt-"
+<span class="cstat-no" title="statement not covered" >  require( 'load-grunt-tasks' )( grunt )</span>
+&nbsp;
+  ### GRUNT TASKS ###
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  define 'lint',                  ['coffeelint']</span>
+<span class="cstat-no" title="statement not covered" >  define 'test',                  ['mochacli']</span>
+<span class="cstat-no" title="statement not covered" >  define 'cov',                   ['mocha_istanbul']</span>
+<span class="cstat-no" title="statement not covered" >  define 'docs',                  ['codo']</span>
+<span class="cstat-no" title="statement not covered" >  define 'build:dev',             ['clean:build', 'lint', 'test', 'coffee:build']</span>
+<span class="cstat-no" title="statement not covered" >  define 'build',                 ['build:dev', 'uglify:build']</span>
+<span class="cstat-no" title="statement not covered" >  define 'pages',                 ['gh-pages']</span>
+<span class="cstat-no" title="statement not covered" >  define 'default',               ['build']</span>
+&nbsp;
+  ###############################################################################
+<span class="cstat-no" title="statement not covered" >  grunt.initConfig config</span>
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jun 07 2015 17:26:47 GMT-0700 (PDT)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

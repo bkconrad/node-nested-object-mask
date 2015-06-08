@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset='UTF-8'>
+  <title>nested-object-mask</title>
+  <script src='../javascript/application.js'></script>
+  <script src='../javascript/search.js'></script>
+  <link rel='stylesheet' href='../stylesheets/application.css' type='text/css'>
+</head>
+  <body>
+    <div id='base' data-path='../'></div>
+<div id='header'>
+  <div id='menu'>
+    <a href='../extra/README.md.html' title='Nested-object-mask'>
+      Nested-object-mask
+    </a>
+    &raquo;
+    <a href='../alphabetical_index.html' title='Index'>
+      Index
+    </a>
+    &raquo;
+    <span class='title'>Masker</span>
+  </div>
+</div>
+    <div id='content'>
+      <h1>
+        Mixin:
+        Masker
+      </h1>
+      <table class='box'>
+        <tr>
+          <td>Defined in:</td>
+          <td>src&#47;nested_object_mask.coffee</td>
+        </tr>
+      </table>
+      <h2>Overview</h2>
+      <div class='tags'>
+  <h3>Since:</h3>
+  <ul class='since'>
+    <li>
+      0.1.0 
+    </li>
+  </ul>
+</div>
+      <h2>Method Summary</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#mask-'>
+        ~
+(?)
+<b>mask</b><span>(object, mask, options)</span>
+      </a>
+    </span>
+    <span class='desc'>
+      The only function you&#39;ll ever need :) <p>See the examples below for details about options and general rules of
+operation.</p>
+    </span>
+  </li>
+</ul>
+      <h2>Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='mask-'>
+      ~
+(?)
+<b>mask</b><span>(object, mask, options)</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>The only function you&#39;ll ever need :)</p><p>See the examples below for details about options and general rules of
+operation.</p><p>If you can not read coffeescript object literals, you can read the compiled
+JS of the examples below in <a href="https://gist.github.com/bkconrad/4a809a7f6076474e56d8">this gist</a></p>
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      Nested masking
+    </h4>
+    <pre><code class='coffeescript'>object =
+  keepThisKey: &#39;some value&#39;
+  subObject:
+    alsoKeepThisKey: &#39;will do&#39;
+    dropThisKey: &#39;good bye :&lt;&#39;
+
+mask =
+  keepThisKey: true
+  # mask within a mask -- maskception
+  subObject:
+    alsoKeepThisKey: true
+    dropThisKey: false
+
+expected = 
+  keepThisKey: &#39;some value&#39;
+  subObject:
+    alsoKeepThisKey: &#39;will do&#39;</code></pre>
+    <h4>
+      Pruning
+    </h4>
+    <pre><code class='coffeescript'># You can also prune empty objects and arrays from the result. Simply pass
+# `pruneEmpty: true` in the options hash:
+object =
+  empty: { }
+  emptyWhenFiltered:
+    foo: &#39;bar&#39;
+  notEmptyWhenFiltered:
+    keepMe: &#39;some value&#39;
+
+mask =
+  empty: true
+  emptyWhenFiltered:
+    doesNotExist: true
+  notEmptyWhenFiltered:
+    keepMe: true
+
+expected =
+  notEmptyWhenFiltered:
+    keepMe: &#39;some value&#39;
+
+result = masker.mask object, mask, pruneEmpty: true
+
+# Without pruning, the result of the above would retain the empty objects,
+# and would instead look like:
+empty: { }
+emptyWhenFiltered: { }
+notEmptyWhenFiltered:
+  keepMe: &#39;some value&#39;</code></pre>
+    <h4>
+      The &#39;*&#39; Key
+    </h4>
+    <pre><code class='coffeescript'># If you need to keep **all** &quot;own&quot; keys in an object, specify a `&#39;*&#39;` key
+# in the   mask, like so:
+object =
+  thing1: { foo: 1, bar: 2 }
+  thing2: { foo: 2, baz: 2 }
+
+mask =
+  &quot;*&quot;: { foo: true }
+
+expected =
+  thing1: { foo: 1 }
+  thing2: { foo: 2 }
+
+assert.deepEqual result, expected
+
+# Note that actual globbing is not currently supported, and that you will
+# need to quote the key. Nesting `&#39;*&#39;` keys is also valid, like so:
+mask =
+  &#39;*&#39;: { &#39;*&#39;: true }</code></pre>
+    <h4>
+      Truthiness
+    </h4>
+    <pre><code class='coffeescript'># It is **highly recommended** that you construct your mask using only
+# `true`, `false`, and objects when possible. When creating a mask by
+# iterating over a domain object, make sure to set each value to a boolean
+# for the least complications.
+
+# If you can not create an ideal `true`&#47;`false`-based mask, NOM will apply
+# general JavaScript &quot;truthiness&quot; to your keys. You should at least be aware
+# of some caveats (the empty string in particular):
+
+object:
+  trueTrue: &#39;kept&#39;
+  trueOne: &#39;kept&#39;
+  trueString: &#39;kept&#39;
+  trueObject: &#39;kept&#39;
+  trueArray: &#39;kept&#39;
+  trueRegex: &#39;kept&#39;
+  falseFalse: &#39;dropped&#39;
+  falseString: &#39;dropped&#39;
+  falseNull: &#39;dropped&#39;
+  falseZero: &#39;dropped&#39;
+  falseNaN: &#39;dropped&#39;
+  falseUndefined: &#39;dropped&#39;
+
+mask:
+  trueTrue: true
+  trueOne: 1
+  trueString: &#39;yes&#39;
+  trueObject: {}
+  trueArray: []
+  trueRegex: &#47;asdf&#47;
+  falseFalse: false
+  falseString: &#39;&#39;
+  falseNull: null
+  falseZero: 0
+  falseNaN: NaN
+  falseUndefined: undefined
+
+expected:
+  trueTrue: &#39;kept&#39;
+  trueOne: &#39;kept&#39;
+  trueString: &#39;kept&#39;
+  trueObject: &#39;kept&#39;
+  trueArray: &#39;kept&#39;
+  trueRegex: &#39;kept&#39;</code></pre>
+  </div>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>object</span>
+      <span class='type'>
+        (
+          <tt>any</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>The object to filter via <code>mask</code> </span>
+    </li>
+    <li>
+      <span class='name'>mask</span>
+      <span class='type'>
+        (
+          <tt>any</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>The mask to filter <code>object</code> with </span>
+    </li>
+    <li>
+      <span class='name'>options</span>
+      <span class='type'>
+        (
+          <tt>object</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>Options to use while masking </span>
+    </li>
+  </ul>
+  <h3>
+    Options Hash:
+    (options):
+  </h3>
+  <ul class='options'>
+    <li>
+      <span class='name'>pruneEmpty</span>
+      <span class='type'>
+        (
+          <tt>boolean</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>When true, recursively prunes empty objects and arrays from the result </span>
+    </li>
+  </ul>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>?</tt>
+      )
+      &mdash;
+      <span class='desc'>any </span>
+    </li>
+  </ul>
+  <h3>Since:</h3>
+  <ul class='since'>
+    <li>
+      0.1.0 
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
+    </div>
+    <div id='footer'>
+  June 07, 15 17:26:45 by
+  <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
+    Codo
+  </a>
+  2.0.11
+  &#10034;
+  Press H to see the keyboard shortcuts
+  &#10034;
+  <a href='http://twitter.com/netzpirat' target='_parent'>@netzpirat</a>
+  &#10034;
+  <a href='http://twitter.com/_inossidabile' target='_parent'>@_inossidabile</a>
+</div>
+<iframe id='search_frame'></iframe>
+<div id='fuzzySearch'>
+  <input type='text'>
+  <ol></ol>
+</div>
+<div id='help'>
+  <p>
+    Quickly fuzzy find classes, mixins, methods, file:
+  </p>
+  <ul>
+    <li>
+      <span>T</span>
+      Open fuzzy finder dialog
+    </li>
+  </ul>
+  <p>
+    Control the navigation frame:
+  </p>
+  <ul>
+    <li>
+      <span>L</span>
+      Toggle list view
+    </li>
+    <li>
+      <span>C</span>
+      Show class list
+    </li>
+    <li>
+      <span>I</span>
+      Show mixin list
+    </li>
+    <li>
+      <span>F</span>
+      Show file list
+    </li>
+    <li>
+      <span>M</span>
+      Show method list
+    </li>
+    <li>
+      <span>E</span>
+      Show extras list
+    </li>
+  </ul>
+  <p>
+    You can focus and blur the search input:
+  </p>
+  <ul>
+    <li>
+      <span>S</span>
+      Focus search input
+    </li>
+    <li>
+      <span>Esc</span>
+      Blur search input
+    </li>
+  </ul>
+</div>
+  </body>
+</html>

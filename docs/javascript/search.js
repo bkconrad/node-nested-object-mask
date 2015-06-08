@@ -1,0 +1,1 @@
+window.searchData = [{"t":"Masker","p":"mixin/Masker.html"},{"t":"src/nested_object_mask.coffee","p":"file/src/nested_object_mask.coffee.html"},{"t":"README.md","p":"extra/README.md.html"},{"t":"Masker~mask","p":"mixin/Masker.html#mask-"}]
